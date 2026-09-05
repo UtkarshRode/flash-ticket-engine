@@ -1,11 +1,19 @@
 # 🎟️ FlashTicket — High-Concurrency Flash-Sale & Seat Reservation Engine
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black.svg?style=for-the-badge&logo=vercel)](https://flash-ticket-engine.vercel.app)
+[![Backend API](https://img.shields.io/badge/Backend_API-Render-46E3B7.svg?style=for-the-badge&logo=render)](https://flash-ticket-engine.onrender.com)
+
+
 [![Node.js](https://img.shields.io/badge/Node.js-20.x-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18.x-61dafb.svg)](https://reactjs.org/)
 [![Redis](https://img.shields.io/badge/Redis-7.x-red.svg)](https://redis.io/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen.svg)](https://www.mongodb.com/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+> 🌐 **Live Application:** [https://flash-ticket-engine.vercel.app](https://flash-ticket-engine.vercel.app)  
+> 📡 **API Service:** [https://flash-ticket-engine.onrender.com](https://flash-ticket-engine.onrender.com)
+
 
 > A production-grade distributed seat reservation and ticketing engine built to solve **race conditions, lock contention, and double-booking** during high-demand flash sales (e.g., concert tickets, high-traffic product drops).
 
