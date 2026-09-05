@@ -17,8 +17,24 @@ app.use(
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    service: 'FlashTicket High-Concurrency Engine API',
+    status: 'ONLINE',
+    version: '1.0.0',
+    documentation: 'https://github.com/UtkarshRode/flash-ticket-engine',
+    endpoints: {
+      health: '/api/health',
+      events: '/api/events',
+      stressTest: '/api/stress-test',
+    },
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
+
   res.json({
     status: 'UP',
     service: 'flash-ticket-engine',

@@ -25,7 +25,7 @@ class MockQuery {
     return this;
   }
   lean() {
-    return this.data;
+    return this;
   }
   then(resolve, reject) {
     return Promise.resolve(this.data).then(resolve, reject);
@@ -36,9 +36,10 @@ class MockQuery {
 }
 
 export class MockEventModel {
-  static async find(query = {}) {
+  static find(query = {}) {
     return new MockQuery([...inMemoryStore.events]);
   }
+
 
   static async findById(id) {
     return inMemoryStore.events.find((e) => String(e._id) === String(id)) || null;
@@ -79,8 +80,9 @@ export class MockEventModel {
 }
 
 export class MockSeatModel {
-  static async find(query = {}) {
+  static find(query = {}) {
     let filtered = [...inMemoryStore.seats];
+
     if (query.eventId) {
       filtered = filtered.filter((s) => String(s.eventId) === String(query.eventId));
     }
@@ -95,9 +97,10 @@ export class MockSeatModel {
   }
 
   static async findOne(query = {}) {
-    const matches = (await this.find(query)).data;
-    return matches.length > 0 ? matches[0] : null;
+    const q = this.find(query);
+    return q.data.length > 0 ? { ...q.data[0] } : null;
   }
+
 
   static async findById(id) {
     const seat = inMemoryStore.seats.find((s) => String(s._id) === String(id));
@@ -178,9 +181,10 @@ export class MockSeatModel {
 }
 
 export class MockOrderModel {
-  static async find(query = {}) {
+  static find(query = {}) {
     return new MockQuery([...inMemoryStore.orders]);
   }
+
 
   static async findOne(query = {}) {
     if (query.idempotencyKey) {
