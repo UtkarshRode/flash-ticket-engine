@@ -8,10 +8,12 @@ export const SocketProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    // Determine socket target
-    const socketUrl = window.location.hostname === 'localhost' && window.location.port === '5173'
-      ? 'http://localhost:5000'
-      : '/';
+    // Determine socket target (supports local dev proxy and cloud deployments)
+    const socketUrl = import.meta.env.VITE_API_URL || 
+      (window.location.hostname === 'localhost' && window.location.port === '5173'
+        ? 'http://localhost:5000'
+        : '/');
+
 
     const socketInstance = io(socketUrl, {
       transports: ['websocket', 'polling'],

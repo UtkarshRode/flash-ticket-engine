@@ -10,6 +10,9 @@ import { ArchitectureModal } from './components/ArchitectureModal';
 import { useSocket } from './context/SocketContext';
 import { AlertCircle, CheckCircle2, Info } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_API_URL || '';
+axios.defaults.baseURL = API_BASE;
+
 export function App() {
   const { socket, isConnected } = useSocket();
 

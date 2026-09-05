@@ -7,11 +7,12 @@ export const initSocket = (httpServer) => {
   
   io = new Server(httpServer, {
     cors: {
-      origin: [clientUrl, 'http://localhost:3000', 'http://localhost:5173'],
+      origin: '*',
       methods: ['GET', 'POST'],
-      credentials: true,
+      credentials: false,
     },
   });
+
 
   io.on('connection', (socket) => {
     console.log(`[WebSocket] Client connected: ${socket.id}`);
