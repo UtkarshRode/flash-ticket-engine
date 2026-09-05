@@ -1,0 +1,28 @@
+{
+  "name": "flash-ticket-server",
+  "version": "1.0.0",
+  "description": "High-Concurrency Flash-Sale & Ticketing Engine with Redis Distributed Locks & Socket.io",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "seed": "node src/scripts/seed.js",
+    "stress-test": "node src/scripts/stressTestCli.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "ioredis": "^5.4.1",
+    "mongoose": "^8.4.1",
+    "morgan": "^1.10.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "axios": "^1.7.2",
+    "nodemon": "^3.1.2"
+  }
+}
